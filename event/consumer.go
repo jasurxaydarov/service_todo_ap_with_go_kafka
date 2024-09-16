@@ -23,6 +23,22 @@ func (e *event) createTodo() {
 
 }
 
+func (e *event) getTodo() {
+	topic := "get-todo"
+	log.Println(topic, " :topic is runing")
+
+	consumeMassages(topic, e.str)
+
+}
+
+func (e *event) getTodos() {
+	topic := "get-todos"
+	log.Println(topic, " :topic is runing")
+
+	consumeMassages(topic, e.str)
+
+}
+
 func (e *event) updateTodo() {
 	topic := "update-todo"
 	log.Println(topic, " :topic is runing")
@@ -31,8 +47,17 @@ func (e *event) updateTodo() {
 
 }
 
-func (e *event)Run(){
+func (e *event) deleteTodo() {
+	topic := "delete-todo"
+	log.Println(topic, " :topic is runing")
+
+	consumeMassages(topic, e.str)
+
+}
+
+func (e *event) Run() {
 	go e.createTodo()
 	go e.updateTodo()
-	select{}
+	go e.deleteTodo()
+	select {}
 }

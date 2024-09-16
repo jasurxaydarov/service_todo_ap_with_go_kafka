@@ -19,7 +19,7 @@ func main() {
 	}
 	log.Println(db)
 
-	// postgres.AoutoMigrate(db)
+	postgres.AoutoMigrate(db)
 	storage := storage.NewStorage(db)
 
 	event := event.NewEvent(storage)

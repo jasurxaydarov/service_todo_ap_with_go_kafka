@@ -23,8 +23,14 @@ func ConnToDb() (*gorm.DB, error) {
 
 func AoutoMigrate(db *gorm.DB) error {
 
+	// if err := db.AutoMigrate(
+	// 	&models.User{},
+	// ); err != nil {
+	// 	log.Println("error on AoutoMigrate(). Error:", err)
+	// 	return err
+	// }
 	if err := db.AutoMigrate(
-		&models.TodoModel{},
+		&models.Todo{},
 	); err != nil {
 		log.Println("error on AoutoMigrate(). Error:", err)
 		return err
